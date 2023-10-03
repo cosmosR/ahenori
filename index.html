@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		
+	</title>
+	<style>
+		@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+	body{
+
+		font-family: 'EF_jejudoldam';
+		background: url(pexels.png);
+		background-size: cover; 
+  		background-repeat: no-repeat; 
+  		background-attachment: fixed; 
+  		padding: 50px;
+
+	}
+
+	div {
+		font-size: 2.3rem;
+		margin:1px;
+
+	}
+
+	button {
+		background: black;
+		color: white;
+		height: 300px;
+	}
+	p{
+		display: inline;
+		font-size: 3rem;
+	}
+	.ahe1ST {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	
+
+	</style>
+</head>
+<body>
+	<section id="sec">
+		<div><div style="font-size: 3rem;"> 13인의 아해가 도로로 질주하오.</div></div>
+		 <div class="button-container">
+			
+		</div>
+		
+
+	</section>
+
+	<section id="sec2">
+			<p>13인의아해는무서운아해와무서워하는아해와그렇게뿐이모였소.</p><br>
+			<button onclick="displayNumber(this)">1</button>
+		    <button onclick="displayNumber(this)">2</button>
+		    <button onclick="displayNumber(this)">3</button>
+		    <button onclick="displayNumber(this)">4</button>
+		    <button onclick="displayNumber(this)">5</button>
+		    <button onclick="displayNumber(this)">6</button>
+		    <button onclick="displayNumber(this)">7</button>
+		    <button onclick="displayNumber(this)">8</button>
+		    <button onclick="displayNumber(this)">9</button>
+		    <button onclick="displayNumber(this)">10</button>
+		    <button onclick="displayNumber(this)">11</button>
+		    <button onclick="displayNumber(this)">12</button>
+		    <button onclick="displayNumber(this)">13</button>
+		    <br>
+		    <p>그중</p><p id="outputP">몇</p><p>인의아이가무서운아해라도좋소</p>
+		    <br>
+		    <p>13인의아해가도로로질주하지아니하여도좋소.</p>
+	</section>
+
+<script type="text/javascript">
+		
+	
+	for(var i=1; i<14; i++){
+		var t = document.createElement("div");
+		t.innerHTML = "제" + i + "의 아해가 무섭다고 그리오." ;
+		var secONE = document.getElementById('sec')
+		secONE.appendChild(t);
+
+	}
+
+
+	function displayNumber(button) {
+    var number = button.innerText;
+    var outputAnswer = document.createElement('p');
+    outputAnswer.innerText = `${number}`; 
+    // `와` '는' 다르다
+    outputAnswer.style.color = "red";
+    // 꼭 ""해줄것
+
+    var outputPost = document.getElementById('outputP');
+    outputPost.innerHTML = '';
+    outputPost.appendChild(outputAnswer);
+
+
+    
+
+   var images = document.getElementsByClassName('ahe1ST');
+  var shuffledImages = shuffle(Array.from(images));
+
+  // Reset all images to the original image
+  for (var i = 0; i < images.length; i++) {
+    images[i].src = "ahe1.png";
+  }
+
+  // Change the specified number of images
+  for (var i = 0; i < number; i++) {
+    shuffledImages[i].src = "ahe2.png";
+  }
+}
+
+// Fisher-Yates shuffle algorithm
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+  
+  	
+	
+	for(var i=0; i<13; i++){
+  	var t = document.createElement("img")
+  	t.src = "ahe1.png"
+  	t.className = "ahe1ST"
+  	t.style.width = randomBH(200,300) + "px";
+  	t.style.height = "auto";
+  	t.style.left = randomBH(500,1500) + "px";
+  	t.style.top = randomBH(0,800) + "px";
+  	document.body.appendChild(t);
+  }
+
+
+
+
+	function randomBH(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+
+
+</script>
+
+</body>
+</html>
